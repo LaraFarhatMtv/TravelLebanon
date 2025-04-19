@@ -205,12 +205,12 @@ export const directusAPI = {
   },
 
   getItems: async (subcategoryId = null, categoryId = null) => {
-    let url = `${API_BASE_URL}/items/Items?fields=*,subcategoryId.*,subcategoryId.categoryId.*`;
+    let url = `${API_BASE_URL}/items/Items?fields=*,subCategoryId.*,subCategoryId.categoryId.*`;
 
     if (subcategoryId) {
-      url += `&filter[subcategoryId][_eq]=${subcategoryId}`;
+      url += `&filter[subCategoryId][_eq]=${subcategoryId}`;
     } else if (categoryId) {
-      url += `&filter[subcategoryId.categoryId][_eq]=${categoryId}`;
+      url += `&filter[subCategoryId.categoryId][_eq]=${categoryId}`;
     }
 
     const response = await fetch(url, {

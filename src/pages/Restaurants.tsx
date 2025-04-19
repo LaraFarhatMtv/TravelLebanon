@@ -117,7 +117,7 @@ const Restaurants = () => {
   useEffect(() => {
     const getItems = async () => {
       try {
-        const response = await directusAPI.getItems(Number(id), Number(subcategoryId) || 0);
+        const response = await directusAPI.getItems(Number(subcategoryId), Number(id) || 0);
         console.log("items", response.data);
         setRestaurants(response.data); // Ensure you update the state with fetched data
       } catch (error) {
